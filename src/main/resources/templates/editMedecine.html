@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+       
+        <title>Register Medecine</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+         crossorigin="anonymous">
+         <link rel="stylesheet" th:href="@{/landing-style.css}">
+         <style>
+          .col{
+            position: relative;
+            left: 13em;
+            bottom: 19em;
+          }
+         </style>
+    </head>
+    <body>
+      <nav class="navbar navbar-ligh  ">
+        <a class="navbar-brand text-light">INK-Pharma</a>
+        <form class="form-inline">
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-danger btn-sm mr-3" data-toggle="modal" data-target="#Backdrop">
+Logout
+</button>
+</form>
+</nav>
+      <div class="row">
+        <div class="col-11">
+          <div th:replace="dashboard :: menu" class=""></div>
+        </div>
+        <div class="col">
+          <form th:action="@{/saveMedecine}" method="post" th:object="${mededata}" class="w-50 border offset-2 mt-5 p-3">
+            <input type="hidden" name="id" id="" th:value="${mededata.id}">
+            <input type="text" name="name" class="form-control" placeholder="medecine name" th:value="${mededata.name}">
+            <label for="category">Category:</label>
+            <select name="category" class="form-control" id="category" >
+              <option disabled>some category</option>
+              <option>Medecine type</option>
+              <option>kids</option>
+              <option>Teen </option>
+              <option>old</option>
+            </select>
+      
+            <label for="category">type:</label>
+            <select class="form-control mb-3" name="type" id="type" >
+              <option disabled>Medecine type</option>
+              <option>Digestive</option>
+              <option>Headache </option>
+              <option>Other parts</option>
+            </select>
+            <input type="text" name="quantity" class="form-control mb-3" placeholder="Quantity" th:value="${mededata.quantity}">
+            <input type="text" name="price" class="form-control" placeholder=" price" th:value="${mededata.price}">
+            <input type="submit"  class="btn btn-success mt-3" value="update medecine">
+        </form>
+     
+        </div>
+      </div>
+      
+
+    </body>
+</html>

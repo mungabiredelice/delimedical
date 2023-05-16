@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>all medecine</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+       
+    </head>
+    <body>
+
+      <nav class="navbar navbar-ligh bg-dark ">
+        <a class="navbar-brand text-light">INK-Pharma</a>
+        <form class="form-inline">
+            <!-- Button trigger modal -->
+<a th:href="@{/logout}" class="btn btn-danger btn-sm mr-3" data-toggle="modal" data-target="#Backdrop">
+Logout
+</a>
+</form>
+</nav>
+      <table class="table mt-5 w-75 shadow-lg offset-1 " >
+        <thead>
+            <th>name</th>
+            <th>category</th>
+            <th>type</th>
+            <th>quantity</th>
+            <th>price</th>
+            <th>status</th>
+            <th>operation</th>
+        </thead>
+
+        <tr th:each="mede :${available}">
+            <td th:text="${mede.name}"></td>
+            <td th:text="${mede.category}"></td>
+            <td th:text="${mede.type}"></td>
+            <td th:text="${mede.quantity}"></td>
+            <td th:text="${mede.price}"></td>
+            <td th:text="${mede.status}"></td>
+            <td><a th:href="@{/buy/{id}(id=${mede.id})}" class="btn btn-light ">Buy</a></td>
+           
+
+        </tr>
+      </table>
+    </body>
+</html>

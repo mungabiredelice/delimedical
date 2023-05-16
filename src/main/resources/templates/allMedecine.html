@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>all medecine</title>
+       
+    </head>
+    <body>
+      <table border="1" >
+        <thead>
+            <th>name</th>
+            <th>category</th>
+            <th>type</th>
+            <th>quantity</th>
+            <th>price</th>
+            <th colspan="2">operation</th>
+        </thead>
+
+        <tr th:each="mede:${medecine}">
+            <td th:text="${mede.name}"></td>
+            <td th:text="${mede.category}"></td>
+            <td th:text="${mede.type}"></td>
+            <td th:text="${mede.quantity}"></td>
+            <td th:text="${mede.price}"></td>
+            <td><a th:href="@{/deleteMedecine/{id}(id=${mede.id})}">delete</a></td>
+            <td>update</td>
+
+        </tr>
+      </table>
+    </body>
+</html>

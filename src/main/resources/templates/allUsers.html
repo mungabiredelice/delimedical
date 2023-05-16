@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>all users</title>
+     
+    </head>
+    <body>
+        
+    <table border="1">
+        <thead>
+            <th>name</th>
+            <th>email</th>
+            <th>phone</th>
+            <th colspan="2">operations</th>
+           
+        </thead>
+
+        <tr th:each="user:${signupdata}">
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.phone}"></td>
+            <td ><a th:href="@{/editUser/{id}(id=${user.Uid})}">edit</a></td>
+            <td><a th:href="@{/deleteUser/{id}(id=${user.Uid})}">delete</a></td>
+        </tr>
+
+    </table>
+    <a th:href="@{/}">Back</a>
+    </body>
+</html>
